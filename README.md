@@ -1,4 +1,10 @@
-neville-coeffs
+Neville's algorithm for calculating coefficients of interpolating polynomial
 ==============
 
-Algorithm for calculating interpolating polynomial coefficients.
+### Usage
+#### Input
+Number of points (integer)
+A set of points (Xi, Yi)
+#### Output
+Polynomial coefficients
+
