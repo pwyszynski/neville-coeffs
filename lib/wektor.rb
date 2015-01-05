@@ -45,11 +45,6 @@ class Wektor < Array
 		coordinatesAmount.downto(1) { |i|
 			self[i-1] = self[i-2]
 		}
-
-
-		# for i in (coordinatesAmount...0) do
-		# 	self[i-1] = self[i-2]
-		# end
 		self[0] = 0
 		return self
 	end
