@@ -74,7 +74,7 @@ def VectorAsPolynomial
       end
     else
       if(a > 1)
-        result.concat("{#{vector[a]}}x^{}")
+        result.concat("{#{vector[a]}}x^{#{a}}")
       else
         result.concat("{#{vector[a]}}x")
       end
