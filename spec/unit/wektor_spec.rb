@@ -97,5 +97,12 @@ describe Wektor do
 			expect(result.length).to eq(4)
 		end
 	end
+
+	describe "#VectorAsPolynomial" do 
+		it "converts vector to polynomial" do
+			expect(Wektor.new(3).SetVector([1,2,3]).VectorAsPolynomial()).to eq("3x^2 +2x +1")
+		end
+
+	end
 	
 end
