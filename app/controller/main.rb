@@ -1,3 +1,4 @@
+#encoding UTF-8
 require 'sinatra'
 
 # sets root as the parent-directory of the current file
