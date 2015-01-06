@@ -1,4 +1,6 @@
 require 'wektor.rb'
+
+module VectorHelpersModule
 #helper mający nam zwrócić latexa z wielomianem do wydruku
 def VectorAsPolynomial(vector)
   result = ""
@@ -36,4 +38,6 @@ def VectorAsPolynomial(vector)
   else
     result.concat(" +" + vector[0])
   end
+end
+
 end
