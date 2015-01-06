@@ -1,4 +1,4 @@
-
+require_relative 'wektor.rb'
 #Coefficients
 class WektorOperations
 
