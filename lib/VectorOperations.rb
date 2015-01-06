@@ -44,7 +44,7 @@ class WektorOperations
 
     for i in 0...n do
         for j in 0...n-i do
-            if (j == i+1) then
+            if (j == i+j) then
                 next
             end
 
