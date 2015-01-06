@@ -1,6 +1,5 @@
 require_relative 'wektor.rb'
 #Coefficients
-class WektorOperations
 
   def Coefficients(i, j, tabX, tabY, pyramid)
     #mnozymy przez Xj
@@ -25,6 +24,8 @@ class WektorOperations
 
     #podzielenie przez (Xj - Xi)
     pyramid[i][j].DivideBy(tabX[j] - tabX[i])
+
+    return pyramid[i][j]
   end
 
 #CalculateResult 
@@ -56,5 +57,3 @@ class WektorOperations
     return pyramid[0][n-1]
 
   end
-    
-end
