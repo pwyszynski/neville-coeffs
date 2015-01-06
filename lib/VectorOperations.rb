@@ -29,5 +29,32 @@ class WektorOperations
 
 #CalculateResult 
   def CalculatePolynomialResult(x,y,n)
+    pyramid = Hash.new {|h,k| h[k] = Wektor.new(n)}
+
+    for i in 0...n do
+        for j in 0...n-1 do
+            if (j != i+j) then
+                next
+            end
+
+            pyramid[j][j] = Wektor.new(n)
+            pyramid[j][j] = y[j]
+        end
+    end
+
+    for i in 0...n do
+        for j in 0...n-1 do
+            if (j == i+1) then
+                next
+            end
+
+            pyramid[j][i+j] = Wektor.new(n)
+            Coefficients(j, i+j, x, y, pyramid)
+        end
+    end
+
+    return pyramid[0][n-1]
+    
+  end
     
 end
