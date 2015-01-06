@@ -5,7 +5,7 @@ Neville's algorithm for calculating coefficients of interpolating polynomial
 Run
 `bundle install`
 
-Go to controllers folder, run `main.rb`
+Go to controllers folder (`cd app/controllers`), run `ruby main.rb`
 
 Launch your web browser and head to 0.0.0.0:4567
 
