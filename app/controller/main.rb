@@ -1,3 +1,5 @@
+#!/bin/env ruby
+# encoding: utf-8
 require 'sinatra'
 
 # sets root as the parent-directory of the current file
