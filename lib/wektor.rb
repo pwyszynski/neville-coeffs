@@ -1,3 +1,5 @@
+require_relative "VectorHelpers.rb"
+
 class Wektor < Array
 	attr_accessor :coordinatesAmount
 
