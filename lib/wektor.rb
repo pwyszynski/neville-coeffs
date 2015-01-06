@@ -8,10 +8,10 @@ class Wektor < Array
 	end
 
 	def SetVector(w)
-			for i in (0...coordinatesAmount) do
-				self[i] = w[i]
-			end
-			return self
+		for i in (0...coordinatesAmount) do
+			self[i] = w[i]
+		end
+		return self
 	end
 
 	def MultiplyBy(n)
@@ -54,6 +54,7 @@ def VectorAsPolynomial
   vector = self	
   result = ""
 
+  #COUNTER LOOP FOR TESTING: FIX ME
   a = 2
 
   while (a > 0) do
