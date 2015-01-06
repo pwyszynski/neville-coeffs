@@ -52,8 +52,11 @@ class Wektor < Array
 
 def VectorAsPolynomial
   vector = self	
-  result = "radek"
-  for a in vector.length-1..0 do
+  result = ""
+
+  a = 2
+
+  while (a > 0) do
 
     if(vector[a] == 0)
       next
@@ -68,24 +71,26 @@ def VectorAsPolynomial
     if(vector[a] == 1)
 
       if(a > 1)
-        result.concat("x^{#{a}}")
+        result.concat("x^#{a}")
       else
         result.concat("x")
       end
     else
       if(a > 1)
-        result.concat("{#{vector[a]}}x^{#{a}}")
+        result.concat("#{vector[a]}x^#{a}")
       else
-        result.concat("{#{vector[a]}}x")
+        result.concat("#{vector[a]}x")
       end
     end
+
+    a -= 1
   end
 
 
   if(result == "")
     result.concat(vector[0])
   else
-    result.concat(" + #{vector[0]}")
+    result.concat(" +#{vector[0]}")
   end
   return result
 end	
