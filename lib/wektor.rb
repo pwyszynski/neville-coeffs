@@ -52,7 +52,7 @@ class Wektor < Array
 
 def VectorAsPolynomial
   vector = self	
-  result = ""
+  result = "radek"
   for a in vector.length-1..0 do
 
     if(vector[a] == 0)
@@ -85,7 +85,7 @@ def VectorAsPolynomial
   if(result == "")
     result.concat(vector[0])
   else
-    result.concat(" +" + vector[0])
+    result.concat(" + #{vector[0]}")
   end
   return result
 end	
