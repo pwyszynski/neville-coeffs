@@ -32,7 +32,7 @@ class WektorOperations
     pyramid = Hash.new {|h,k| h[k] = Wektor.new(n)}
 
     for i in 0...n do
-        for j in 0...n-1 do
+        for j in 0...n-i do
             if (j != i+j) then
                 next
             end
@@ -43,7 +43,7 @@ class WektorOperations
     end
 
     for i in 0...n do
-        for j in 0...n-1 do
+        for j in 0...n-i do
             if (j == i+1) then
                 next
             end
@@ -54,7 +54,7 @@ class WektorOperations
     end
 
     return pyramid[0][n-1]
-    
+
   end
     
 end
