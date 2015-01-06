@@ -37,5 +37,3 @@ else
 
 end
 
-#helper mający zwrócić nam całkę latexowa 
-def VectorAsIntegral()
