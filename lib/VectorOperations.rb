@@ -32,7 +32,7 @@ end
 
 #CalculateResult 
 def CalculatePolynomialResult(x,y,n)
-  pyramid = Hash.new {|h,k| h[k] = Wektor.new(n)}
+  pyramid = Hash.new {|h,k| h[k] = Array.new(n)}
 
   for m in 0...n do
       for k in 0...n-m do
@@ -40,7 +40,7 @@ def CalculatePolynomialResult(x,y,n)
               next
           end
 
-          pyramid[k][k] = Wektor.new(n)
+          pyramid[k][k] = Wektor.new(n-1)
           pyramid[k][k].coords.push(y[k])
       end
   end
@@ -51,7 +51,7 @@ def CalculatePolynomialResult(x,y,n)
               next
           end
 
-          pyramid[k][m+k] = Wektor.new(n)
+          pyramid[k][m+k] = Wektor.new(n-1)
           Coefficients(k, m+k, x, y, pyramid)
       end
   end
