@@ -1,98 +1,84 @@
+class Wektor
+  attr_accessor :coords
 
-class Wektor < Array
-	attr_accessor :coordinatesAmount
+  def initialize(length)
+    @coords = Array.new(length, 0)
+  end
 
-	def initialize(length)
-		super(length, 0)
-		@coordinatesAmount = length
-	end
+  def set!(w)
+    @coords = w.dup
 
-	def SetVector(w)
-		for i in (0...coordinatesAmount) do
-			self[i] = w[i]
-		end
-		return self
-	end
+    self
+  end
 
-	def MultiplyBy(n)
-		for i in (0...coordinatesAmount) do
-			self[i] *= n			
-		end
-		return self
-	end
+  %i(* /).each do |op|
+    define_method(op) do |n|
+      coords.map! { |i| i.send(op, n) }
 
-	def DivideBy(n)
-		for i in (0...coordinatesAmount) do
-			self[i] /= n
-		end
-		return self
-	end
-
-	def Sub(w)
-		for i in (0...coordinatesAmount) do
-			self[i] -= w[i]
-		end
-		return self
-	end
-
-	def Add(w)
-		for i in (0...coordinatesAmount) do
-			self[i] += w[i]
-		end
-		return self
-	end
-
-	def ShiftRight
-		coordinatesAmount.downto(1) { |i|
-			self[i-1] = self[i-2]
-		}
-		self[0] = 0
-		return self
-	end
-
-def VectorAsPolynomial
-  vector = self	
-  result = ""
-
-  #COUNTER LOOP FOR TESTING: FIX ME
-  a = 2
-
-  while (a > 0) do
-
-    if(vector[a] == 0)
-      next
+      self
     end
+  end
 
-    if(a != vector.length-1 && vector[a] > 0)
-      result.concat(" +")
-    elsif(a != vector.length-1 && vector[a] < 0)
-      result.concat(" ")
+  %i(- +).each do |op|
+    define_method(op) do |v|
+      @coords.zip(v).map { |a, b| a.send(op, b) }
+      
+      self
     end
+  end
+
+  def shift_right!
+    coords.rotate!
+    coords[0] = 0
+
+    self
+  end
+
+#Needs reworking for new vector.
+# def VectorAsPolynomial
+#   vector = self	
+#   result = ""
+
+#   #COUNTER LOOP FOR TESTING: FIX ME
+#   a = 2
+
+#   while (a > 0) do
+
+#     if(vector[a] == 0)
+#       next
+#     end
+
+#     if(a != vector.length-1 && vector[a] > 0)
+#       result.concat(" +")
+#     elsif(a != vector.length-1 && vector[a] < 0)
+#       result.concat(" ")
+#     end
     
-    if(vector[a] == 1)
+#     if(vector[a] == 1)
 
-      if(a > 1)
-        result.concat("x^#{a}")
-      else
-        result.concat("x")
-      end
-    else
-      if(a > 1)
-        result.concat("#{vector[a]}x^#{a}")
-      else
-        result.concat("#{vector[a]}x")
-      end
-    end
+#       if(a > 1)
+#         result.concat("x^#{a}")
+#       else
+#         result.concat("x")
+#       end
+#     else
+#       if(a > 1)
+#         result.concat("#{vector[a]}x^#{a}")
+#       else
+#         result.concat("#{vector[a]}x")
+#       end
+#     end
 
-    a -= 1
-  end
+#     a -= 1
+#   end
 
 
-  if(result == "")
-    result.concat(vector[0])
-  else
-    result.concat(" +#{vector[0]}")
-  end
-  return result
-end	
+#   if(result == "")
+#     result.concat(vector[0])
+#   else
+#     result.concat(" +#{vector[0]}")
+#   end
+#   return result
+# end	
+
 end
