@@ -4,29 +4,34 @@ require 'narray'
 #Coefficients
 
 def Coefficients(i, j, tabX, tabY, pyramid)
-  #mnozymy przez Xj
-  length = pyramid[i,j-1].coords.length
 
+  length = pyramid[i,j-1].coords.length
+  
+  #mnozymy przez Xj
   temp = Wektor.new(length) 
   temp.setVector(pyramid[i,j-1].coords) 
+  #
   temp.MultiplyBy(tabX[j])
   pyramid[i,j].setVector(temp.coords)
 
   #odjęcie Pi,j-1 przesuniętego o 1 w prawo
   temp = Wektor.new(length) 
   temp.setVector(pyramid[i,j-1].coords) 
-  temp.shift_right
+  #
+  temp.shift_right!
   pyramid[i,j].Sub(temp)
 
   #dodanie Pi+1, j przesuniętego o 1 w prawo
   temp = Wektor.new(length) 
   temp.setVector(pyramid[i+1,j].coords) 
-  temp.shift_right
+  #
+  temp.shift_right!
   pyramid[i,j].Add(temp)
 
   #odjęcie Pi+1, j pomnożonego przez Xi
   temp = Wektor.new(length) 
   temp.setVector(pyramid[i+1,j].coords) 
+  #
   temp.MultiplyBy(tabX[i])
   pyramid[i,j].Sub(temp)
 

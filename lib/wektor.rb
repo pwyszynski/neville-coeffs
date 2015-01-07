@@ -9,6 +9,7 @@ class Wektor
      	for i in (0...coords.size) do
   		@coords[i] = ary[i]
   		end
+  		self
   end
 
   def DivideBy(number) 
@@ -39,12 +40,13 @@ class Wektor
   	@coords[0] = number
   end
 
-  def shift_right
-      	for i in (coords.size-1...0) do
-  		@coords[i] += wektorToAdd.coords[i]
-  		end
-  		@coords[0] = 0
+  def shift_right!
+  	self.coords.pop
+  	self.coords.unshift(0)
+  	self
   end
+
+
 
 #Needs reworking for new vector.
 # def VectorAsPolynomial
