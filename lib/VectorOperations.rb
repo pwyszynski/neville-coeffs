@@ -1,62 +1,67 @@
 require_relative 'wektor.rb'
+require 'narray'
 
 #Coefficients
 
 def Coefficients(i, j, tabX, tabY, pyramid)
   #mnozymy przez Xj
-  length = pyramid[i][j-1].coords.length
+  length = pyramid[i,j-1].coords.length
 
-  temp = pyramid[i][j-1]
+  temp = Wektor.new(length) 
+  temp.setVector(pyramid[i,j-1].coords) 
   temp.MultiplyBy(tabX[j])
-  pyramid[i][j].set!(temp)
+  pyramid[i,j].setVector(temp.coords)
 
   #odjęcie Pi,j-1 przesuniętego o 1 w prawo
-  temp = pyramid[i][j-1]
-  temp.shift_right!
-  pyramid[i][j].Sub(temp)
+  temp = Wektor.new(length) 
+  temp.setVector(pyramid[i,j-1].coords) 
+  temp.shift_right
+  pyramid[i,j].Sub(temp)
 
   #dodanie Pi+1, j przesuniętego o 1 w prawo
-  temp = pyramid[i+1][j]
-  temp.shift_right!
-  pyramid[i][j].Add(temp)
+  temp = Wektor.new(length) 
+  temp.setVector(pyramid[i+1,j].coords) 
+  temp.shift_right
+  pyramid[i,j].Add(temp)
 
   #odjęcie Pi+1, j pomnożonego przez Xi
-  temp = pyramid[i+1][j]
+  temp = Wektor.new(length) 
+  temp.setVector(pyramid[i+1,j].coords) 
   temp.MultiplyBy(tabX[i])
-  pyramid[i][j].Sub(temp)
+  pyramid[i,j].Sub(temp)
 
   #podzielenie przez (Xj - Xi)
-  pyramid[i][j].DivideBy(tabX[j] - tabX[i])
+  pyramid[i,j].DivideBy(tabX[j] - tabX[i])
 
-  return pyramid[i][j]
+  return pyramid[i,j]
 end
 
 #CalculateResult 
 def CalculatePolynomialResult(x,y,n)
-  pyramid = Hash.new {|h,k| h[k] = Array.new(n)}
+  pyramid = NArray.object(n,n)
 
-  for m in 0...n do
-      for k in 0...n-m do
-          if (k != m+k) then
+  for i in 0...n do
+      for j in 0...n-i do
+          if (j != i+j) then
               next
           end
 
-          pyramid[k][k] = Wektor.new(n-1)
-          pyramid[k][k].coords.push(y[k])
+          pyramid[j,j] = Wektor.new(n)
+          pyramid[j,j].SetFirst(y[j])
       end
   end
 
-  for m in 0...n do
-      for k in 0...n-m do
-          if (k == m+k) then
+  for i in 0...n do
+      for j in 0...n-i do
+          if (j == i+j) then
               next
           end
 
-          pyramid[k][m+k] = Wektor.new(n-1)
-          Coefficients(k, m+k, x, y, pyramid)
+          pyramid[j,i+j] = Wektor.new(n)
+          pyramid[j,i+j].setVector(Coefficients(j, i+j, x, y, pyramid).coords)
       end
   end
 
-  return pyramid[0][n-1].coords
+  return pyramid[0,n-1].coords
 
 end

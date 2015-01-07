@@ -1,45 +1,49 @@
 class Wektor
-  attr_accessor :coords
+  attr_reader :coords
 
   def initialize(length)
     @coords = Array.new(length, 0)
   end
 
-  def set!(w)
-    @coords = w.dup
-
-    self
+  def setVector(ary)
+     	for i in (0...coords.size) do
+  		@coords[i] = ary[i]
+  		end
   end
 
   def DivideBy(number) 
-  	for i in (0...@coords.length) do
+  	for i in (0...coords.size) do
   		@coords[i] /= number
   		end
   end
 
   def MultiplyBy(number) 
-  	for i in (0...@coords.length) do
+  	for i in (0...coords.size) do
   		@coords[i] *= number
   		end
   end
 
   def Sub(wektorToSub) 
-  	for i in (0...@coords.length) do
+  	for i in (0...coords.size) do
   		@coords[i] -= wektorToSub.coords[i]
   		end
   end
 
   def Add(wektorToAdd) 
-  	for i in (0...@coords.length) do
+  	for i in (0...coords.size) do
   		@coords[i] += wektorToAdd.coords[i]
   		end
   end
 
-  def shift_right!
-    coords.rotate!
-    coords[0] = 0
+  def SetFirst(number)
+  	@coords[0] = number
+  end
 
-    self
+  def shift_right
+      	for i in (coords.size-1...0) do
+  		@coords[i] += wektorToAdd.coords[i]
+  		end
+  		@coords[0] = 0
   end
 
 #Needs reworking for new vector.
