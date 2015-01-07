@@ -3,29 +3,29 @@ require_relative 'wektor.rb'
 
 def Coefficients(i, j, tabX, tabY, pyramid)
   #mnozymy przez Xj
-  length = pyramid[i][j-1].length
+  length = pyramid[i][j-1].coords.length
 
-  temp = Wektor.new(length).SetVector(pyramid[i][j-1])
-  temp.MultiplyBy(tabX[j])
-  pyramid[i][j].SetVector(temp)
+  temp = Wektor.new(length).set!(pyramid[i][j-1])
+  temp*(tabX[j])
+  pyramid[i][j].set!(temp)
 
   #odjęcie Pi,j-1 przesuniętego o 1 w prawo
-  temp = Wektor.new(length).SetVector(pyramid[i][j-1])
-  temp.ShiftRight
-  pyramid[i][j].Sub(temp)
+  temp = Wektor.new(length).set!(pyramid[i][j-1])
+  temp.shift_right!
+  pyramid[i][j]-temp
 
   #dodanie Pi+1, j przesuniętego o 1 w prawo
-  temp = Wektor.new(length).SetVector(pyramid[i+1][j])
-  temp.ShiftRight
-  pyramid[i][j].Add(temp)
+  temp = Wektor.new(length).set!(pyramid[i+1][j])
+  temp.shift_right!
+  pyramid[i][j]+(temp)
 
   #odjęcie Pi+1, j pomnożonego przez Xi
-  temp = Wektor.new(length).SetVector(pyramid[i+1][j])
-  temp.MultiplyBy(tabX[i])
-  pyramid[i][j].Sub(temp)
+  temp = Wektor.new(length).set!(pyramid[i+1][j])
+  temp*(tabX[i])
+  pyramid[i][j]-temp
 
   #podzielenie przez (Xj - Xi)
-  pyramid[i][j].DivideBy(tabX[j] - tabX[i])
+  pyramid[i][j]/(tabX[j] - tabX[i])
 
   return pyramid[i][j]
 end
@@ -41,7 +41,7 @@ def CalculatePolynomialResult(x,y,n)
           end
 
           pyramid[j][j] = Wektor.new(n)
-          pyramid[j][j].push(y[j])
+          pyramid[j][j].coords.push(y[j])
       end
   end
 
@@ -56,6 +56,6 @@ def CalculatePolynomialResult(x,y,n)
       end
   end
 
-  return pyramid[0][n-1]
+  return pyramid[0][n-1].coords
 
 end
