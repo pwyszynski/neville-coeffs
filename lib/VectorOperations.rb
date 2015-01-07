@@ -67,6 +67,6 @@ def CalculatePolynomialResult(x,y,n)
       end
   end
 
-  return pyramid[0,n-1].coords
-
+  return pyramid[0,n-1]
+  
 end
