@@ -104,6 +104,31 @@ describe Wektor do
 		it "changes the first number in coords array" do
 			expect(result.coords[0]).to eq(3)
 		end
+	end
+	describe "#VectorAsPolynomial" do
+	it "converts Vector with no zeros to polynomial string" do
+		vector = Wektor.new(3).setVector([4,3,2])
+		expect(vector.VectorAsPolynomial).to eq("2x^2 +3x +4")
+	end
 
+	it "converts Vector with only ones inside to polynomial string" do
+		vector = Wektor.new(3).setVector([1,-1,1])
+		expect(vector.VectorAsPolynomial).to eq("x^2 -1x +1")
+		end
+
+	it "converts Vector with 1 at beignning and rest zeros to polynomial string" do
+		vector = Wektor.new(3).setVector([1,0,0])
+		expect(vector.VectorAsPolynomial).to eq("1")
+		end	
+
+		it "converts Vector with only zeros to polynomial string" do
+		vector = Wektor.new(3).setVector([1,0,0])
+		expect(vector.VectorAsPolynomial).to eq("1")
+		end	
+
+		it "converts Vector with only zeros to polynomial string" do
+		vector = Wektor.new(3).setVector([0,1,0])
+		expect(vector.VectorAsPolynomial).to eq(" +x")
+		end	
 	end
 end
