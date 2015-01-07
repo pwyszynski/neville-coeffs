@@ -1,4 +1,5 @@
 require_relative 'wektor.rb'
+
 #Coefficients
 
 def Coefficients(i, j, tabX, tabY, pyramid)
@@ -6,7 +7,7 @@ def Coefficients(i, j, tabX, tabY, pyramid)
   length = pyramid[i][j-1].coords.length
 
   temp = pyramid[i][j-1]
-  temp*(tabX[j])
+  temp.MultiplyBy(tabX[j])
   pyramid[i][j].set!(temp)
 
   #odjęcie Pi,j-1 przesuniętego o 1 w prawo
