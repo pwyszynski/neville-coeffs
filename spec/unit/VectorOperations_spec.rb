@@ -17,7 +17,7 @@ describe "#Coefficients" do
 
 	Coefficients(0,1,x,y,pyramid)
 
-	expect(pyramid[0,1]).to eq("-2 2 0")
+	expect(pyramid[0][1]).to eq(Array[-2,2,0])
 
 
 end

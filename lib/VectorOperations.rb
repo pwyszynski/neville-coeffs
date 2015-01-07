@@ -12,20 +12,20 @@ def Coefficients(i, j, tabX, tabY, pyramid)
   #odjęcie Pi,j-1 przesuniętego o 1 w prawo
   temp = pyramid[i][j-1]
   temp.shift_right!
-  pyramid[i][j]-temp
+  pyramid[i][j].Sub(temp)
 
   #dodanie Pi+1, j przesuniętego o 1 w prawo
   temp = pyramid[i+1][j]
   temp.shift_right!
-  pyramid[i][j]+(temp)
+  pyramid[i][j].Add(temp)
 
   #odjęcie Pi+1, j pomnożonego przez Xi
   temp = pyramid[i+1][j]
-  temp*(tabX[i])
-  pyramid[i][j]-temp
+  temp.MultiplyBy(tabX[i])
+  pyramid[i][j].Sub(temp)
 
   #podzielenie przez (Xj - Xi)
-  pyramid[i][j]/(tabX[j] - tabX[i])
+  pyramid[i][j].DivideBy(tabX[j] - tabX[i])
 
   return pyramid[i][j]
 end

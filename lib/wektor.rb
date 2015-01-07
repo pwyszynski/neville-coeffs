@@ -11,19 +11,28 @@ class Wektor
     self
   end
 
-  %i(* /).each do |op|
-    define_method(op) do |n|
-      coords.map! { |i| i.send(op, n) }
-
-      self
-    end
+  def DivideBy(number) 
+  	for i in (0...@coords.length) do
+  		@coords[i] /= number
+  		end
   end
 
-  %i(- +).each do |op|
-    define_method(op) do |v|
-      @coords = @coords.zip(v.coords).map { |a, b| a.send(op, b) }
-      self
-    end
+  def MultiplyBy(number) 
+  	for i in (0...@coords.length) do
+  		@coords[i] *= number
+  		end
+  end
+
+  def Sub(wektorToSub) 
+  	for i in (0...@coords.length) do
+  		@coords[i] -= wektorToSub.coords[i]
+  		end
+  end
+
+  def Add(wektorToAdd) 
+  	for i in (0...@coords.length) do
+  		@coords[i] += wektorToAdd.coords[i]
+  		end
   end
 
   def shift_right!
