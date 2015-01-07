@@ -21,8 +21,7 @@ class Wektor
 
   %i(- +).each do |op|
     define_method(op) do |v|
-      @coords.zip(v).map { |a, b| a.send(op, b) }
-      
+      @coords = @coords.zip(v.coords).map { |a, b| a.send(op, b) }
       self
     end
   end
