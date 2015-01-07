@@ -64,6 +64,7 @@ class Wektor
   def VectorAsPolynomial
     vector = self.coords	
     result = ""
+    result.clear
 
     #COUNTER LOOP FOR TESTING: FIX ME
     a = vector.length-1
@@ -71,6 +72,7 @@ class Wektor
     while (a > 0) do
 
       if(vector[a] == 0)
+      	a-=1
         next
       end
 
@@ -99,9 +101,9 @@ class Wektor
     end
 
 
-    if(result == "")
-      result.concat(vector[0])
-    else
+    if(result.empty?)
+      result.concat("#{vector[0]}")
+    elsif(vector[0] != 0)
       result.concat(" +#{vector[0]}")
     end
     return result
