@@ -5,22 +5,22 @@ def Coefficients(i, j, tabX, tabY, pyramid)
   #mnozymy przez Xj
   length = pyramid[i][j-1].coords.length
 
-  temp = Wektor.new(length).set!(pyramid[i][j-1])
+  temp = pyramid[i][j-1]
   temp*(tabX[j])
   pyramid[i][j].set!(temp)
 
   #odjęcie Pi,j-1 przesuniętego o 1 w prawo
-  temp = Wektor.new(length).set!(pyramid[i][j-1])
+  temp = pyramid[i][j-1]
   temp.shift_right!
   pyramid[i][j]-temp
 
   #dodanie Pi+1, j przesuniętego o 1 w prawo
-  temp = Wektor.new(length).set!(pyramid[i+1][j])
+  temp = pyramid[i+1][j]
   temp.shift_right!
   pyramid[i][j]+(temp)
 
   #odjęcie Pi+1, j pomnożonego przez Xi
-  temp = Wektor.new(length).set!(pyramid[i+1][j])
+  temp = pyramid[i+1][j]
   temp*(tabX[i])
   pyramid[i][j]-temp
 
@@ -34,25 +34,25 @@ end
 def CalculatePolynomialResult(x,y,n)
   pyramid = Hash.new {|h,k| h[k] = Wektor.new(n)}
 
-  for i in 0...n do
-      for j in 0...n-i do
-          if (j != i+j) then
+  for m in 0...n do
+      for k in 0...n-m do
+          if (k != m+k) then
               next
           end
 
-          pyramid[j][j] = Wektor.new(n)
-          pyramid[j][j].coords.push(y[j])
+          pyramid[k][k] = Wektor.new(n)
+          pyramid[k][k].coords.push(y[k])
       end
   end
 
-  for i in 0...n do
-      for j in 0...n-i do
-          if (j == i+j) then
+  for m in 0...n do
+      for k in 0...n-m do
+          if (k == m+k) then
               next
           end
 
-          pyramid[j][i+j] = Wektor.new(n)
-          Coefficients(j, i+j, x, y, pyramid)
+          pyramid[k][m+k] = Wektor.new(n)
+          Coefficients(k, m+k, x, y, pyramid)
       end
   end
 
