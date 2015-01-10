@@ -19,3 +19,6 @@ Click Submit
 #### Output
 Interpolating polynomial in LaTeX (TO-DO)
 
+## WARNING
+In orther to work it requires you have `latex` and `dvipng` installed.
+
