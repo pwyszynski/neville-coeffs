@@ -1,12 +1,14 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-# gem "rails"
+# Tests:
 gem 'simplecov', :require => false, :group => :test
 gem 'rspec'
-<<<<<<< HEAD
+
+# Functional:
 gem 'narray'
-=======
+
+# Sinatra
 gem 'sinatra'
 gem 'shotgun'
->>>>>>> master
+
