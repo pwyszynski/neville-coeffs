@@ -1,6 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 require 'sinatra'
+require_relative '../../lib/VectorOperations.rb'
 
 # sets root as the parent-directory of the current file
 set :root, File.join(File.dirname(__FILE__), '..')
@@ -16,8 +17,11 @@ post '/form' do
 	setX = params[:setofX]
 	setY = params[:setofY]
 
-	num2 = num.to_i+1
-	setX2 = setX.split(' ')
-	setY2 = setY.split(' ')
-	"Liczba puntków: #{num2}, Zestaw X: #{setX2}, Zestaw Y: #{setY2}"
+	setX.split(" ").map {|i| Integer(i) }
+	setY.split(" ").map {|i| Integer(i) }
+	num = num.to_i
+
+	wektor = CalculatePolynomialResult(setX, setY, num)
+
+	"Liczba puntków: #{num}, Zestaw X: #{setX}, Zestaw Y: #{setY} <br> #{text}"
 end
