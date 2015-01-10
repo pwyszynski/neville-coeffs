@@ -1,13 +1,19 @@
 #!/bin/env ruby
 # encoding: utf-8
 require 'sinatra'
+require 'calculus'
+require 'fileutils'
+
 require_relative '../../lib/VectorOperations.rb'
 require_relative '../../lib/wektor.rb'
 
 # sets root as the parent-directory of the current file
 set :root, File.join(File.dirname(__FILE__), '..')
 # sets the view directory correctly
-set :views, Proc.new { File.join(root, "views") } 
+set :views, Proc.new { File.join(root, "views") }
+#sets the public images directory
+set :public_folder, Proc.new { File.join(root, "public") }
+
 
 get '/' do
   erb :index
@@ -24,6 +30,9 @@ post '/form' do
 
 	wektor = CalculatePolynomialResult(setX, setY, num)
 	text = wektor.VectorAsPolynomial
+	image = Calculus::Expression.new(text, :parse => false).to_png
+	destination =  File.expand_path("../", Dir.pwd) + "/public/equation.png"
+	FileUtils.cp(image, destination)
 
-	"Liczba puntków: #{num}, Zestaw X: #{setX}, Zestaw Y: #{setY} <br> #{text}"
+	"Liczba puntków: #{num}, Zestaw X: #{setX}, Zestaw Y: #{setY} <br> <p>#{text}</p><p><img src=/equation.png alt=\"Equation\">"
 end
