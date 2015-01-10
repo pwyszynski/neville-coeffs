@@ -66,7 +66,6 @@ class Wektor
     result = ""
     result.clear
 
-    #COUNTER LOOP FOR TESTING: FIX ME
     a = vector.length-1
 
     while (a > 0) do
