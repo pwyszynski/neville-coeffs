@@ -1,9 +1,14 @@
 require 'wektor.rb'
 
+#w konstruktorze wstrzykuejmy tutaj instancje Operations 
 
 def Calculate(x,y) do
 
+#to mam nam zwrocic dwa stringi latexowe, tablica whatever gotowe do druku
 end
+
+
+
 
 #Wywalić input gdzieś indziej
 #tutaj tylko chcemy mieć metode calculate do której wrzucamy co chcemy otrzymać z aplikacji
