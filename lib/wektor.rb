@@ -62,11 +62,11 @@ class Wektor
 
 #Needs reworking for new vector.
   def VectorAsPolynomial
-    vector = self	
+    vector = self.coords	
     result = ""
 
     #COUNTER LOOP FOR TESTING: FIX ME
-    a = 2
+    a = vector.length-1
 
     while (a > 0) do
 

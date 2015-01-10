@@ -22,6 +22,7 @@ post '/form' do
 	num = num.to_i
 
 	wektor = CalculatePolynomialResult(setX, setY, num)
+	text = wektor.VectorAsPolynomial
 
 	"Liczba puntków: #{num}, Zestaw X: #{setX}, Zestaw Y: #{setY} <br> #{text}"
 end
