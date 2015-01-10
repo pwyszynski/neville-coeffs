@@ -1,98 +1,98 @@
+class Wektor
+  attr_reader :coords
 
-class Wektor < Array
-	attr_accessor :coordinatesAmount
+  def initialize(length)
+    @coords = Array.new(length, 0)
+  end
 
-	def initialize(length)
-		super(length, 0)
-		@coordinatesAmount = length
-	end
+  def setVector(ary)
+     	for i in (0...coords.size) do
+  		@coords[i] = ary[i]
+  		end
+  		self
+  end
 
-	def SetVector(w)
-		for i in (0...coordinatesAmount) do
-			self[i] = w[i]
-		end
-		return self
-	end
+  def DivideBy(number) 
+  	for i in (0...coords.size) do
+  		@coords[i] /= number
+  		end
+  end
 
-	def MultiplyBy(n)
-		for i in (0...coordinatesAmount) do
-			self[i] *= n			
-		end
-		return self
-	end
+  def MultiplyBy(number) 
+  	for i in (0...coords.size) do
+  		@coords[i] *= number
+  		end
+  end
 
-	def DivideBy(n)
-		for i in (0...coordinatesAmount) do
-			self[i] /= n
-		end
-		return self
-	end
+  def Sub(wektorToSub) 
+  	for i in (0...coords.size) do
+  		@coords[i] -= wektorToSub.coords[i]
+  		end
+  end
 
-	def Sub(w)
-		for i in (0...coordinatesAmount) do
-			self[i] -= w[i]
-		end
-		return self
-	end
+  def Add(wektorToAdd) 
+  	for i in (0...coords.size) do
+  		@coords[i] += wektorToAdd.coords[i]
+  		end
+  end
 
-	def Add(w)
-		for i in (0...coordinatesAmount) do
-			self[i] += w[i]
-		end
-		return self
-	end
+  def SetFirst(number)
+  	@coords[0] = number
+  end
 
-	def ShiftRight
-		coordinatesAmount.downto(1) { |i|
-			self[i-1] = self[i-2]
-		}
-		self[0] = 0
-		return self
-	end
+  def shift_right!
+  	self.coords.pop
+  	self.coords.unshift(0)
+  	self
+  end
 
-def VectorAsPolynomial
-  vector = self	
-  result = ""
 
-  #COUNTER LOOP FOR TESTING: FIX ME
-  a = 2
 
-  while (a > 0) do
+#Needs reworking for new vector.
+# def VectorAsPolynomial
+#   vector = self	
+#   result = ""
 
-    if(vector[a] == 0)
-      next
-    end
+#   #COUNTER LOOP FOR TESTING: FIX ME
+#   a = 2
 
-    if(a != vector.length-1 && vector[a] > 0)
-      result.concat(" +")
-    elsif(a != vector.length-1 && vector[a] < 0)
-      result.concat(" ")
-    end
+#   while (a > 0) do
+
+#     if(vector[a] == 0)
+#       next
+#     end
+
+#     if(a != vector.length-1 && vector[a] > 0)
+#       result.concat(" +")
+#     elsif(a != vector.length-1 && vector[a] < 0)
+#       result.concat(" ")
+#     end
     
-    if(vector[a] == 1)
+#     if(vector[a] == 1)
 
-      if(a > 1)
-        result.concat("x^#{a}")
-      else
-        result.concat("x")
-      end
-    else
-      if(a > 1)
-        result.concat("#{vector[a]}x^#{a}")
-      else
-        result.concat("#{vector[a]}x")
-      end
-    end
+#       if(a > 1)
+#         result.concat("x^#{a}")
+#       else
+#         result.concat("x")
+#       end
+#     else
+#       if(a > 1)
+#         result.concat("#{vector[a]}x^#{a}")
+#       else
+#         result.concat("#{vector[a]}x")
+#       end
+#     end
 
-    a -= 1
-  end
+#     a -= 1
+#   end
 
 
-  if(result == "")
-    result.concat(vector[0])
-  else
-    result.concat(" +#{vector[0]}")
-  end
-  return result
-end	
+#   if(result == "")
+#     result.concat(vector[0])
+#   else
+#     result.concat(" +#{vector[0]}")
+#   end
+#   return result
+# end	
+
 end
