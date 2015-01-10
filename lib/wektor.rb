@@ -9,6 +9,7 @@ class Wektor
      	for i in (0...coords.size) do
   		@coords[i] = ary[i]
   		end
+      
   		self
   end
 
@@ -16,34 +17,45 @@ class Wektor
   	for i in (0...coords.size) do
   		@coords[i] /= number
   		end
+
+      self
   end
 
   def MultiplyBy(number) 
   	for i in (0...coords.size) do
   		@coords[i] *= number
   		end
+
+      self
   end
 
   def Sub(wektorToSub) 
   	for i in (0...coords.size) do
   		@coords[i] -= wektorToSub.coords[i]
   		end
+
+      self
   end
 
   def Add(wektorToAdd) 
   	for i in (0...coords.size) do
   		@coords[i] += wektorToAdd.coords[i]
   		end
+
+      self
   end
 
   def SetFirst(number)
   	@coords[0] = number
+
+    self
   end
 
   def shift_right!
   	self.coords.pop
   	self.coords.unshift(0)
-  	self
+  	
+    self
   end
 
 
