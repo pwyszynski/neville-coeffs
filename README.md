@@ -20,5 +20,5 @@ Click Submit
 Interpolating polynomial in LaTeX (TO-DO)
 
 ## WARNING
-In orther to work it requires you have `latex` and `dvipng` installed.
+In orther to work it requires you have `texlive-latex-base` and `dvipng` installed. (`sudo apt-get install <packagename>`)
 
