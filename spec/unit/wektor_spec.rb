@@ -1,7 +1,7 @@
 require_relative '../spec_helper.rb'
 require_relative '../../lib/wektor.rb'
 
-describe wektor do
+describe Wektor do
 	it "initializes with one argument" do
 		expect {
 			Wektor.new(2)
