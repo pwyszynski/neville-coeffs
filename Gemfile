@@ -12,3 +12,6 @@ gem 'narray'
 gem 'sinatra'
 gem 'shotgun'
 
+# Drawing LaTeX extension
+gem 'calculus'
+
