@@ -34,5 +34,5 @@ post '/form' do
 	destination =  File.expand_path("../", Dir.pwd) + "/public/equation.png"
 	FileUtils.cp(image, destination)
 
-	"Liczba puntków: #{num}, Zestaw X: #{setX}, Zestaw Y: #{setY} <br> <p>#{text}</p><p><img src=/equation.png alt=\"Equation\">"
+	"Liczba puntków: #{num}, Zestaw X: #{setX}, Zestaw Y: #{setY} <br> <p name=\"result\">#{text}</p><p><img src=/equation.png alt=\"Equation\">"
 end
