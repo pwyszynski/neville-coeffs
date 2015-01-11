@@ -21,6 +21,8 @@ describe "Main" do
 	result = driver.find_element(:name => "result")
 	expect(result.text).to eq("x^2 -1x")
 
+	driver.close
+
 	end
 end
 
