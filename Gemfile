@@ -4,6 +4,7 @@ source "https://rubygems.org"
 # Tests:
 gem 'simplecov', :require => false, :group => :test
 gem 'rspec'
+gem 'rake'
 gem 'selenium-webdriver'
 # Functional:
 gem 'narray'
