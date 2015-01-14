@@ -23,3 +23,6 @@ Click Submit
 #### Output
 Interpolating polynomial in LaTeX
 
+### Adnotations cosidering RSpec
+For all tests to pass (especially Selenium one) Sinatra server must be running on your machine.
+
