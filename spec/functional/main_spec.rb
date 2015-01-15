@@ -4,7 +4,7 @@ require 'selenium-webdriver'
 describe "Main" do 
 	it "takes input of 3 variables and then present result on the screen" do
 	driver = Selenium::WebDriver.for :firefox
-	driver.get "http://localhost:4567"
+	driver.get "http://localhost:9292"
 	numberOfPointsBox = driver.find_element :name => "numberofpoints"
 	numberOfPointsBox.send_keys "3"
 
