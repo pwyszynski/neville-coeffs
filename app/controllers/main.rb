@@ -30,10 +30,12 @@ class MainApp < Sinatra::Base
 
 		wektor = CalculatePolynomialResult(setX, setY, num)
 		text = wektor.VectorAsPolynomial
-		image = Calculus::Expression.new(text, :parse => false).to_png
-		destination =  Dir.pwd + "/app/public/equation.png"
-		FileUtils.cp(image, destination)
 
-		"Liczba puntków: #{num}, Zestaw X: #{setX}, Zestaw Y: #{setY} <br> <p name=\"result\">#{text}</p><p><img src=/equation.png alt=\"Equation\">"
+		unless `dpkg --get-selections | grep -v deinstall | grep dvipng`.empty?
+			image = Calculus::Expression.new(text, :parse => false).to_png
+			destination =  Dir.pwd + "/app/public/equation.png"
+			FileUtils.cp(image, destination)
+		end
+		"Liczba puntków: #{num}, Zestaw X: #{setX}, Zestaw Y: #{setY} <br> <p name=\"result\">#{text}</p><p><img src=/equation.png alt=\"Equation not visible due to missing dependencies.\">"
 	end
 end
