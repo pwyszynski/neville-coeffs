@@ -51,6 +51,7 @@ PLATFORMS
 DEPENDENCIES
   calculus
   narray
+  rack
   rake
   rspec
   selenium-webdriver
