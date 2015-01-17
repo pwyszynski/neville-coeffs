@@ -1,20 +1,50 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<script type="text/javascript"
-	  		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-		</script>
-		<script type="text/x-mathjax-config">
-			MathJax.Hub.Config({
-			tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
-			});
-		</script>
-	</head>
-	<body>
-		<p>Podany zestaw X'ów: <%= @setX2 %></p>
-		<p>Podany zestaw Y'ów: <%= @setY2 %></p>
-		<br>
-		<p id="wynik">Wielomian interpolacyjny: $ <%= @text %> $ </p>
-		<p><font color="white"><%= @text %></font></p> 
+<head>
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+    });
+  </script>
+  <title>Neville method for interpolating polynomials</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+	  <div class="container">
+	    <div class="navbar-header">
+	    <button class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+	    <span class="sr-only">Toggle navigation</span>
+	    <span class="icon-bar"/>
+	    <span class="icon-bar"/>
+	    <span class="icon-bar"/>
+	    </button>
+	      <a class="navbar-brand" href="/">Neville's Interpolating Polynomial</a>
+	    </div>
+	  <div class="navbar-collapse collapse">
+	  <!--/.nav-collapse -->
+	  </div>
+  </nav>
 
-	</body>
+  <div class="container">
+    <div class="starter-template">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <center><h3 class="panel-title">Wielomian interpolacyjny</h3></center>
+          </div>
+          <div class="panel-body">
+            <p>Podany zestaw X'ów: <%= @setX2 %></p>
+            <p>Podany zestaw Y'ów: <%= @setY2 %></p>
+            <br>
+            <p id="wynik">Wielomian interpolacyjny: $ <%= @text %> $ </p>
+            <p><font color="white" name="result"><%= @text %></font></p>
+          </div>
+        </div>
+      </div>
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
 </html>

@@ -1,22 +1,51 @@
+<!DOCTYPE html>
 <html>
-    <body>
-        <p>Wielomian interpolacyjny metodą Neville'a.</p>
-        <p>
-  			Wypełnij poniższą formę, żeby wyliczyć wielomian interpolacyjny. <br>Przy podawaniu kolejnych punktów oddziel je spacją.
-		</p>
+<head>
+  <title>Neville method for interpolating polynomials</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+      <button class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"/>
+      <span class="icon-bar"/>
+      <span class="icon-bar"/>
+      </button>
+        <a class="navbar-brand" href="/">Neville's Interpolating Polynomial</a>
+      </div>
+    <div class="navbar-collapse collapse">
+    <!--/.nav-collapse -->
+    </div>
+  </nav>
 
-		<form action="/form" method="post">
-			Liczba punktów: 
-  			<input type="text" name="numberofpoints">
-  			<br>
-  			Punkty X:
-  			<input type="text" name="setofX">
-  			<br>
-  			Punkty Y:
-  			<input type="text" name="setofY">
-  			<br>
-  			<input type="submit" name="submitButton">
-		</form>
-
-    </body>
+  <div class="container">
+    <div class="starter-template">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <center><h3 class="panel-title">Wielomian interpolacyjny</h3></center>
+          </div>
+          <div class="panel-body">
+            <p>Wypełnij poniższą formę, żeby wyliczyć wielomian interpolacyjny. 
+            <br>Przy podawaniu kolejnych punktów oddziel je spacją.</p>
+            <form action="/form" method="post">
+            Liczba punktów: 
+            <input class="form-control" type="text" placeholder="3" name="numberofpoints">
+            <br>
+            Punkty X:
+            <input class="form-control" type="text" placeholder="1 2 4" name="setofX">
+            <br>
+            Punkty Y:
+            <input class="form-control" type="text" placeholder="0 2 12" name="setofY">
+            <br>
+            <input class="btn btn-success" type="submit" name="submitButton">
+        </form>
+          </div>
+        </div>
+      </div>
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
 </html>
