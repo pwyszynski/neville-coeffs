@@ -1,7 +1,6 @@
 #!/bin/env ruby
 # encoding: utf-8
 require 'sinatra'
-require 'calculus'
 require 'fileutils'
 
 require_relative '../../lib/VectorOperations.rb'
