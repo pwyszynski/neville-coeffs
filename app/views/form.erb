@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<script type="text/javascript"
+	  		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+			tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+			});
+		</script>
+	</head>
+	<body>
+		<p>Podany zestaw X'ów: <%= @setX2 %></p>
+		<p>Podany zestaw Y'ów: <%= @setY2 %></p>
+		<br>
+		<p id="wynik">Wielomian interpolacyjny: $ <%= @text %> $ </p>
+		<p><font color="white"><%= @text %></font></p> 
+
+	</body>
+</html>

@@ -16,9 +16,9 @@ describe "Main" do
 	submitButton.submit
 
 	wait = Selenium::WebDriver::Wait.new(:timeout => 10)
-	wait.until {driver.find_element(:name => "result")}
+	wait.until {driver.find_element(:xpath => "html/body/p[4]/font")}
 
-	result = driver.find_element(:name => "result")
+	result = driver.find_element(:xpath => "html/body/p[4]/font")
 	expect(result.text).to eq("x^2 -1x")
 
 	driver.close
