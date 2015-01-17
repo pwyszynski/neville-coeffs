@@ -31,19 +31,25 @@
 
   <div class="container">
     <div class="starter-template">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <center><h3 class="panel-title">Wielomian interpolacyjny</h3></center>
-          </div>
-          <div class="panel-body">
-            <p>Podany zestaw X'ów: <%= @setX2 %></p>
-            <p>Podany zestaw Y'ów: <%= @setY2 %></p>
-            <br>
-            <p id="wynik">Wielomian interpolacyjny: $ <%= @text %> $ </p>
-            <p><font color="white" name="result"><%= @text %></font></p>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <center><h3 class="panel-title">Wielomian interpolacyjny</h3></center>
+            </div>
+            <div class="panel-body">
+              <p>Podany zestaw X-ów: <%= @setX2 %></p>
+              <p>Podany zestaw Y-ów: <%= @setY2 %></p>
+              <br>
+              <p id="wynik">Wielomian interpolacyjny: $ <%= @text %> $ </p>
+              <p><font color="white" name="result"><%= @text %></font></p>
+            </div>
           </div>
         </div>
+        <div class="col-md-4"></div>
       </div>
+    </div>
   </div>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
