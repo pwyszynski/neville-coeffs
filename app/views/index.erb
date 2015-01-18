@@ -33,18 +33,28 @@
             <div class="panel-body">
               <p>Wypełnij poniższą formę, żeby wyliczyć wielomian interpolacyjny. 
               <br>Przy podawaniu kolejnych punktów oddziel je spacją.</p>
-              <form action="/form" method="post">
-              Liczba punktów: 
-              <input class="form-control" type="text" placeholder="3" name="numberofpoints">
-              <br>
-              Punkty X:
-              <input class="form-control" type="text" placeholder="1 2 4" name="setofX">
-              <br>
-              Punkty Y:
-              <input class="form-control" type="text" placeholder="0 2 12" name="setofY">
-              <br>
-              <input class="btn btn-success" type="submit" name="submitButton">
-          </form>
+              <form id="inputForm" action="/form" method="post" class="form" role="form" data-toggle="validator">
+                
+                <div class="form-group">
+                  <label for="inputNumOfPts" class="control-label">Liczba punktów:</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="inputNumOfPts" placeholder="3" required name="numberofpoints">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputSetOfX" class="control-label">Punkty X:</label>
+                  <input type="text" name="setofX" pattern="^-?[0-9]+(\s-?[0-9]+)*$" class="form-control" id="inputSetOfX" placeholder="1 2 4" data-error="Nieprawidłowe dane" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                  <label for="inputSetOfY" class="control-label">Punkty Y:</label>
+                  <input type="text" name="setofY" pattern="^-?[0-9]+(\s-?[0-9]+)*$" class="form-control" id="inputSetOfY" placeholder="0 2 12" data-error="Nieprawidłowe dane" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                  <input class="btn btn-success" type="submit" name="submitButton">
+                </div>
+              </form>
             </div>
           </div>
         </div>
